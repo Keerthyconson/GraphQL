@@ -1,10 +1,17 @@
 const express = require("express");
 const { graphqlHTTP } = require("express-graphql");
+const schema = require("./schema/schema");
 
 const app = express();
 
 // Now we setup a middleware
-app.use("/graphql", graphqlHTTP({}));
+app.use(
+  "/graphql",
+  graphqlHTTP({
+    schema: schema,
+    graphiql: true,
+  })
+);
 
 app.listen(4000, () => {
   console.log("Listening on port 4000");
