@@ -3,3 +3,27 @@ body {
   font-family: "Nunito", sans-serif;
   background-color: #eee;
 }
+
+.tab {
+  display: flex;
+  flex-direction: row;
+}
+
+.btn {
+  text-decoration: none;
+  color: black;
+  border: none;
+  background-color: #eee;
+  width: auto;
+  font-size: large;
+}
+.btn:hover {
+  color: #c95c61;
+}
+
+#main h1,
+h2,
+h3,
+h4 {
+  color: #c95c61;
+}

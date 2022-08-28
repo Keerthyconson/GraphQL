@@ -7,7 +7,7 @@ const cors = require("cors");
 const app = express();
 
 // allow cross origin requests
-app.use(cors);
+app.use(cors());
 mongoose.connect(
   "mongodb+srv://freecodebootcampuser:freecodebootcampuser@cluster0.4jmy3.mongodb.net/gqlninja"
 );

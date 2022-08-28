@@ -3,7 +3,11 @@ import BookList from "./components/BookList";
 
 // Apollo client
 import { ApolloClient, InMemoryCache, ApolloProvider } from "@apollo/client";
-import { gql } from "@apollo/client";
+import AddBook from "./components/AddBook";
+import BookDetails from "./components/BookDetails";
+import { useState } from "react";
+import React from "react";
+import BookDetailsTemplate from "./components/BookDetailsTemplate";
 
 // apollo client setup
 const client = new ApolloClient({
@@ -11,25 +15,26 @@ const client = new ApolloClient({
   cache: new InMemoryCache(),
 });
 
-client
-  .query({
-    query: gql`
-      query {
-        books {
-          name
-          genre
-          id
-        }
-      }
-    `,
-  })
-  .then((result) => console.log(result));
+export const BookIDProvider = React.createContext();
+
 function App() {
+  const [id, setId] = useState("");
+  const setIdApp = (childData) => {
+    setId(childData);
+    // console.log("The value is  : ", id);
+  };
+
   return (
     <ApolloProvider client={client}>
       <div id="main">
         <h1>Ninja's Reading List</h1>
-        <BookList />
+        <div className="tab">
+          <BookList setIdApp={setIdApp} />
+          <BookIDProvider.Provider value={id}>
+            {id !== "" ? <BookDetails /> : <BookDetailsTemplate />}
+          </BookIDProvider.Provider>
+        </div>
+        <AddBook />
       </div>
     </ApolloProvider>
   );

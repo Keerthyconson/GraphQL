@@ -1,0 +1,21 @@
+#book-details {
+  width: 300px;
+  margin: auto;
+  border: 1px solid black;
+  padding-left: 15px;
+}
+
+#book-details h3 {
+  padding-left: 15px;
+  margin: auto;
+}
+
+#book-details h4 {
+  margin: auto;
+  font-weight: bold;
+  text-decoration: underline;
+}
+#book-details span {
+  color: #c95c61;
+  font-weight: bold;
+}
