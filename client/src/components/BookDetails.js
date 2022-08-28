@@ -56,7 +56,7 @@ const BookDetails = () => {
       <div>
         <h3>Other Books From the author : </h3>
         <ul>
-          {bookData.author.books.map((book) => (
+          {bookData?.author?.books?.map((book) => (
             <li>{book.name}</li>
           ))}
         </ul>
